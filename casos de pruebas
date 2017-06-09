@@ -1,0 +1,44 @@
+programa(fernando,Lenguaje).
+Lenguaje = cobol ;
+Lenguaje = visualBasic ;
+Lenguaje = java.
+
+programa(Quien,java).
+Quien = fernando ;
+Quien = julieta ;
+Quien = marcos ;
+Quien = santiago.
+
+
+programa(Quien,assembler).
+false.
+
+esProgramador(fernando).
+true .
+
+rol(fernando,ROL).
+ROL = analistaFuncional.
+
+esProgramador(Quien).
+Quien = fernando ;
+Quien = fernando ;
+Quien = fernando ;
+Quien = julieta ;
+Quien = marcos ;
+Quien = santiago ;
+Quien = santiago.
+
+rol(Alguien,projectLeader).
+Alguien = andres.
+
+
+
+3).1
+lenguajeProyecto(sumatra,Lenguajes).
+Lenguajes = [cobol].
+
+.2
+
+
+
+
