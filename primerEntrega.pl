@@ -17,7 +17,6 @@ lenguaje(ecmsScript).
 proyecto(sumatra,[julieta,marcos,andres],[java,puntoNet]).
 proyecto(prometeus,[fernando,santiago],[cobol]).
 
-
 persona(Alguien):- esProgramador(Alguien).
 persona(Alguien):- rol(Alguien,_).
 
@@ -30,15 +29,20 @@ lenguajeProyecto(Proyecto,Lista):-
 esProyecto(Proyecto):- proyecto(Proyecto,_,_).
 
 perteneceA(sumatra,Persona):-
-	findall(Persona,proyecto(sumatra,Persona,_),ListaDe),
+	findall(Personas,proyecto(sumatra,Personas,_),ListaDe),
 	flatten(ListaDe,Lista),
 	member(Persona,Lista).
 
 perteneceA(prometeus,Persona):-
-	findall(Persona,proyecto(prometeus,Persona,_),ListaDe),
+	findall(Personas,proyecto(prometeus,Personas,_),ListaDe),
 	flatten(ListaDe,Lista),
 	member(Persona,Lista).
 
+programadorDe(Proyecto,Persona):-
+	findall(Personas,proyecto(Proyecto,Personas,_),ListaDe),
+	flatten(ListaDe,Lista),
+	member(Persona,Lista),
+	esProgramador(Persona).
 
 estaOk(Persona,Proyecto):- esProyecto(Proyecto),
 	perteneceA(Proyecto,Persona),
@@ -55,6 +59,14 @@ estaOk(Persona,Proyecto):-
 	proyecto(Proyecto,_,Lista),
 	member(Lenguaje,Lista).
 
+miembrosBienAsignadosA(sumatra,Lista):-
+	findall(Persona,estaOk(Persona,sumatra),Lista).
+
+miembrosBienAsignadosA(prometeus,Lista):-
+	findall(Persona,estaOk(Persona,prometeus),Lista).
 
 miembrosBienAsignados(Lista):-
-	findall(Persona,estaOk(Persona,_),Lista).
+	esProyecto(Proyecto),
+	findall(Personas,miembrosBienAsignadosA(Proyecto,Personas),Miembros),
+	flatten(Miembros,Lista).
+	
