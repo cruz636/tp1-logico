@@ -35,9 +35,41 @@ Alguien = andres.
 
 3).1
 lenguajeProyecto(sumatra,Lenguajes).
-Lenguajes = [cobol].
+Lenguajes = [java,puntoNet].
 
 .2
+lenguajeProyecto(prometeus,Lemguajes).
+Lemguajes = [cobol].
+
+3.
+perteneceA(prometeus,fernando).
+true .
+
+4.
+perteneceA(prometeus,santiago).
+true.
+
+5.
+ programadorDe(sumatra,Quien).
+Quien = julieta ;
+Quien = marcos ;
+false.
+
+6.
+miembrosBienAsignadosA(sumatra,Lista).
+Lista = [andres, julieta, marcos].
+
+7.
+miembrosBienAsignadosA(prometeus,Lista).
+Lista = [fernando, fernando]
+
+8.
+miembrosBienAsignados(Lista).
+Lista = [andres, julieta, marcos] ;
+Lista = [fernando, fernando].
+
+
+
 
 
 
